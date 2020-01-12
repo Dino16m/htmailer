@@ -5,8 +5,8 @@ It is adapted to work with django templating engine or any templating engine ada
 
 **Htmessage subclasses `Django.core.mail.EmailMessage`**
 User defines instance of **Htmailer** like so
-	`from htmailer import Htmessage  
-	message = Htmessage()`
+	`from htmailer import Htmessage ` 
+	`message = Htmessage()`
 
 *	`message.subject('subject goes here')`
 	`message.html_template('mailhtml.html', context)`
