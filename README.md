@@ -6,29 +6,33 @@ It is adapted to work with django templating engine or any templating engine ada
 **Htmessage subclasses `Django.core.mail.EmailMessage`**
 User defines instance of **Htmailer** like so
 	`from htmailer import Htmessage ` 
+
 	`message = Htmessage()`
 
-*	`message.subject('subject goes here')`
-	`message.html_template('mailhtml.html', context)`
-	`message.txt_template('mailtext.html', context)` 
-`'mail*.html'` is a path to the template where the mail is defined.
-*This works like standard django Render() function, such that 'mail.*.html' is searched for in the dirs 
-defined in the `TEMPLATE` setting Dictconfig
-Since this mailer extends `EmailMessage`, standard behaviour like send(), header() are available, 
-that the content of rendered text template from the mailer is the body of the text message and manually setting body()
-will replace the rendered text but will have no effect on the html
+	`message.subject('subject goes here')`
+	`message.html_template('mail_html.html', context)`
+	`message.txt_template('mail_text.html', context)` 
+
+`'mail_*.html'` is a path to the template where the mail is defined.
+
+This works like standard django Render() function, such that 'mail_*.html' is searched for in the dirs 
+defined in the `TEMPLATE` setting Dictconfig.
+Since this mailer extends `EmailMessage`, standard behaviour like `send()`, `header()` are available, 
+that the content of rendered text template from the mailer is the body of the text message and manually setting `body()`
+will replace the rendered text but will have no effect on the html part of the message.
 
 #USAGE
 `class Htmessage`
-+constructed like `Django.core.mail.EmailMessage`
++ constructed like `Django.core.mail.EmailMessage`
 	`html_template(template, context)`
-+template is path to the html file containing the template
-+context is a dictionary containing context data to replace the place holders in the html file
-	`txt_template(template, context)` 
-works just like html_template above
++ `template` is a path to the html file containing the template.
++ `context` is a dictionary containing context data to replace the place holders in the html file.
+`txt_template(template, context)`  works just like `html_template()` above.
+
 The html file for txt template should not contain html document, its content should just be text with
 with placeholders according to the style of the Template Engine used by your project
-+for example, the html file can contain;
+
+For example, the html file can contain;
 
 	<html>
 	<head>
@@ -51,3 +55,8 @@ with placeholders according to the style of the Template Engine used by your pro
 This context for the html message above will be a `dict` like:
 
 	{'user_name': 'dino', 'company_name': 'A cute company'}
+
+
+
+
+
