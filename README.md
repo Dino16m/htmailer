@@ -42,9 +42,10 @@ with placeholders according to the style of the Template Engine used by your pro
 	</body>
 	</html>
  and the text file can contain the same information but as plain text like so;
-	 `Dear {{user_name}},
+	 Dear {{user_name}},
 			welcome to htmailer, I hope you wil find it useful one way or another.
 																		signed,
-																		{{company_name}}`.
-This context for the html message above will be a `dict` like: 
-`{'user_name': 'dino', 'company_name': 'A cute company'}`
+																		{{company_name}}.
+This context for the html message above will be a `dict` like:
+
+	{'user_name': 'dino', 'company_name': 'A cute company'}
